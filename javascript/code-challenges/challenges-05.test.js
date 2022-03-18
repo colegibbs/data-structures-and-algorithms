@@ -132,6 +132,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  let arrStr = str.split('');
+  let reverseArrStr = arrStr.reduce((reverse, current) => {
+    reverse.unshift(current);
+    return reverse;
+  }, []);
+  return reverseArrStr.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
