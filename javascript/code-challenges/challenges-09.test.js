@@ -79,6 +79,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+  let entries = Object.entries(obj);
+  return entries.reduce((acc, curr) => {
+    acc.push(`${curr[0]}: ${curr[1]}`);
+    return acc;
+  }, []);
 };
 
 
