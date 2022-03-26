@@ -29,7 +29,15 @@ return: 23
 const findMax = (matrix) => {
   // Solution code here...
   for(let i in matrix) {
-    for(let j matrix[i])
+    for(let j in matrix[i]) {
+      matrix.reduce((acc, curr) => {
+        if(curr > acc) {
+          return curr;
+        }
+        return acc;
+      });
+    }
+
   }
 };
 
