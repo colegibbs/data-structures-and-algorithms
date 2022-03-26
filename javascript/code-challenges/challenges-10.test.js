@@ -28,17 +28,16 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
-  for(let i in matrix) {
-    for(let j in matrix[i]) {
-      matrix.reduce((acc, curr) => {
-        if(curr > acc) {
-          return curr;
-        }
-        return acc;
-      });
+  let matrixArr = matrix.reduce((acc, curr) => {
+    acc.push(...curr);
+    return acc;
+  }, []);
+  return matrixArr.reduce((acc, curr) => {
+    if(curr > acc) {
+      return curr
     }
-
-  }
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -57,6 +56,11 @@ return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
   // Solution code here...
+  let matrixArr = matrix.reduce((acc, curr) => {
+    acc.push(...curr);
+    return acc;
+  }, []);
+  return matrixArr.reduce((acc, curr) => acc + curr, 0);
 };
 
 
