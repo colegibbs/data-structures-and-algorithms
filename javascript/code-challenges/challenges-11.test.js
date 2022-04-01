@@ -18,10 +18,10 @@ Becomes:
 ]
 ------------------------------------------------------------------------------------------------ */
 
-function transformToLis(obj){
+function transformToLis(obj) {
   // Solution code here...
   let arr = [];
-  for(let [key, value] of Object.entries(obj)) {
+  for (let [key, value] of Object.entries(obj)) {
     arr.push(`<li>${key}: ${value}</li>`);
   }
   return arr;
@@ -80,11 +80,19 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  // return input.map(arr => {
+  //   return arr.filter(num => num % 5 === 0 && isNaN(num) === false);
+  // })
+  //   .map(arr => {
+  //     return arr.map(num => Math.pow(2, num));
+  //   });
+
   return input.map(arr => {
-    return arr.filter(num => num % 5 === 0 && isNaN(num) === false);
+    return arr.filter(num => num % 5 === 0 && typeof num === 'number');
   })
     .map(arr => {
-      return arr.map(num => Math.pow(2, num));
+      let oth = arr.map(num => Math.pow(2, num));
+      return oth;
     });
 };
 
@@ -152,6 +160,12 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.filter(person => person.gender === 'male' || person.gender === 'female')
+    .reduce((acc, curr)=> {
+      acc.push(curr.name);
+      return acc;
+    }, [])
+    .join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -162,6 +176,11 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  let shortestHeight = data.map(person => person.height)
+    .reduce((acc, curr) => {
+      return curr > acc ? curr : acc;
+    }, 0);
+  return data.find(person => person.height === shortestHeight).name;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,8 +196,8 @@ Run your tests from the console: jest challenges-10.test.js
 
 describe('Testing challenge 1', () => {
   test('It should return a list of key value pairs inside of li tags', () => {
-    expect(transformToLis({name: 'bob', age: 32})[0]).toStrictEqual(`<li>name: bob</li>`);
-    expect(transformToLis({name: 'bob', age: 32})[1]).toStrictEqual(`<li>age: 32</li>`);
+    expect(transformToLis({ name: 'bob', age: 32 })[0]).toStrictEqual(`<li>name: bob</li>`);
+    expect(transformToLis({ name: 'bob', age: 32 })[1]).toStrictEqual(`<li>age: 32</li>`);
     expect(transformToLis({})).toStrictEqual([]);
   });
 });
