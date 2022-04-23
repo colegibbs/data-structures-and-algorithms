@@ -47,7 +47,6 @@ def test_to_string_double():
     assert str(linked_list) == "{ banana } -> { apple } -> NULL"
 
 
-@pytest.mark.skip("TODO")
 def test_includes_true():
     linked_list = LinkedList()
 
@@ -58,7 +57,7 @@ def test_includes_true():
     assert linked_list.includes("apple")
 
 
-@pytest.mark.skip("TODO")
+
 def test_includes_false():
     linked_list = LinkedList()
 
