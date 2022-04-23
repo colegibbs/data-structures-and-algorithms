@@ -57,7 +57,6 @@ def test_includes_true():
     assert linked_list.includes("apple")
 
 
-
 def test_includes_false():
     linked_list = LinkedList()
 
