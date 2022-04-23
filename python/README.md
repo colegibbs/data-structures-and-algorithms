@@ -74,3 +74,23 @@ From the root of the `data-structures-and-algorithms/python` folder, execute the
 - **Run every possible test** - `pytest`
 - **Run filtered tests** - `pytest -k some_filter_text`
 - **Run in watch mode** - `ptw` or `pytest-watch`
+
+## Singly Linked List
+<!-- Short summary or background information -->
+Singly linked lists are a datastructure type that made of of Nodes. Each Node exists in different spots in the memory. This require each Node to reference the following node so it can be found.
+
+### Challenge
+<!-- Description of the challenge -->
+In this challenge I had to creat a linked list, create a function that added to the list, create a  `__str__` function that returned the list represented as a string, and a function that checked if a value was in the list.
+
+### Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+I used TDD to create my linked list. This was best for me because I had never created a linked list before and the tests guided me. The Big O time is O(n) when checking if the value is in the node list and space is O(1). For adding to my list the time is O(1) and space is O(1). Calling the method to represent the list as a string has the same checking for an existing value.
+
+### API
+<!-- Description of each method publicly available to your Linked List -->
+`includes` - Takes a value as an argument and returns `True` if the value exists in the linked list and `False` otherwise.
+
+`__str__` - Returns the linked list represented in string form.
+
+`insert` - takes a value as an argument and creates a new Node at the beginning of the linked list.
