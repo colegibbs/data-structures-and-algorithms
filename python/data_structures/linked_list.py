@@ -4,13 +4,19 @@ class LinkedList:
     """
 
     def __init__(self):
-        # initialization here
-        pass
+       self.head = None
 
-    def some_method(self):
-        # method body here
-        pass
+    def insert(self, value):
+        self.head = Node(value)
 
+    def __str__(self):
+        if self.head:
+            return f"{{ {self.head.value} }} -> NULL"
+        return "NULL"
+
+class Node:
+    def __init__(self, value):
+        self.value = value
 
 class TargetError:
     pass
