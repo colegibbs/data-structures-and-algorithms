@@ -37,7 +37,6 @@ def test_insert_before_first():
     assert str(linked_list) == "{ cucumber } -> { apple } -> NULL"
 
 
-@pytest.mark.skip("TODO")
 def test_insert_after():
     linked_list = LinkedList()
 

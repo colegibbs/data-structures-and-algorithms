@@ -73,6 +73,17 @@ class LinkedList:
         else:
             self.insert(new_value)
 
+    def insert_after(self, after, new_value):
+        '''
+        inserts new Node with "new_value" after Node with paramater "after" as a value
+        '''
+        current = self.head
+        while current:
+            if current.value == after:
+                current.next = Node(new_value, current.next)
+                break
+            current = current.next
+
 
 class Node:
     def __init__(self, value, next_ = None):
