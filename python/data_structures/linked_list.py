@@ -64,11 +64,15 @@ class LinkedList:
         - outside if current = current.next
         '''
         current = self.head
-        while current:
-            if current.next.value == before:
-                current.next = Node(new_value, current.next)
-                break
-            current = current.next
+        if current.next != None:
+            while current:
+                if current.next.value == before:
+                    current.next = Node(new_value, current.next)
+                    break
+                current = current.next
+        else:
+            self.insert(new_value)
+
 
 class Node:
     def __init__(self, value, next_ = None):
