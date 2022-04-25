@@ -1,3 +1,6 @@
+from turtle import setundobuffer
+
+
 class LinkedList:
     """
     Put docstring here
@@ -50,6 +53,20 @@ class LinkedList:
         while current:
             if current.next == None:
                 current.next = Node(new_node_value)
+                break
+            current = current.next
+
+    def insert_before(self, before, new_value):
+        '''
+        - traverse through the list until current.next == before
+        - if conidtion is met :
+        set current.next == Node(new_value, current.next)
+        - outside if current = current.next
+        '''
+        current = self.head
+        while current:
+            if current.next.value == before:
+                current.next = Node(new_value, current.next)
                 break
             current = current.next
 
