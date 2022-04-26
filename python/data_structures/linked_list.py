@@ -63,6 +63,8 @@ class LinkedList:
         set current.next == Node(new_value, current.next)
         - outside if current = current.next
         '''
+        if self.head == None:
+            raise TargetError
         current = self.head
         if current.next != None:
             while current:
@@ -72,6 +74,8 @@ class LinkedList:
                 current = current.next
         else:
             self.insert(new_value)
+
+
 
     def insert_after(self, after, new_value):
         '''
@@ -90,5 +94,5 @@ class Node:
         self.value = value
         self.next = next_
 
-class TargetError:
+class TargetError(Exception):
     pass
