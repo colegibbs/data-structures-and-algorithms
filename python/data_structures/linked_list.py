@@ -1,3 +1,4 @@
+from optparse import Values
 from turtle import setundobuffer
 
 
@@ -65,15 +66,28 @@ class LinkedList:
         '''
         if self.head == None:
             raise TargetError
+        inserted = False
         current = self.head
-        if current.next != None:
-            while current:
-                if current.next.value == before:
-                    current.next = Node(new_value, current.next)
-                    break
-                current = current.next
-        else:
+        if current.next == None and current.value == before:
             self.insert(new_value)
+            inserted = True
+        # if current.next != None:
+        else:
+            while current:
+                try:
+                    if current.next.value == before:
+                        current.next = Node(new_value, current.next)
+                        inserted = True
+                        break
+                    current = current.next
+                except:
+                    raise TargetError
+        if inserted == False:
+            raise TargetError
+        # else:
+        #     self.insert(new_value)
+
+
 
 
 
@@ -82,11 +96,18 @@ class LinkedList:
         inserts new Node with "new_value" after Node with paramater "after" as a value
         '''
         current = self.head
+        if current == None:
+            raise TargetError
+        inserted = False
         while current:
             if current.value == after:
                 current.next = Node(new_value, current.next)
+                inserted = True
                 break
             current = current.next
+        if inserted == False:
+            raise TargetError
+
 
 
 class Node:
