@@ -1,3 +1,7 @@
+from optparse import Values
+from turtle import setundobuffer
+
+
 class LinkedList:
     """
     Put docstring here
@@ -11,16 +15,26 @@ class LinkedList:
 
 
     def __str__(self):
-        str = "NULL"
         current = self.head
+        str = ""
         while current:
-            if current.next:
-                str = f"{{ {current.value} }} -> {{ {current.next.value} }} -> " + str
-            else:
-                if str == "NULL":
-                    str = f"{{ {current.value} }} -> " + str
+            str += f"{{ {current.value} }} -> "
             current = current.next
+        str += "NULL"
         return str
+
+
+
+        # str = "NULL"
+        # current = self.head
+        # while current:
+        #     if current.next:
+        #         str = f"{{ {current.value} }} -> {{ {current.next.value} }} -> " + str
+        #     else:
+        #         if str == "NULL":
+        #             str = f"{{ {current.value} }} -> " + str
+        #     current = current.next
+        # return str
 
     def includes(self, search_value):
         current = self.head
@@ -30,10 +44,76 @@ class LinkedList:
             current = current.next
         return False
 
+    def append(self, new_node_value):
+        '''
+        traverse through the list until the current.next === None.
+        set current.next to the new node.
+        ser the next of the new node to None.
+        '''
+        current = self.head
+        while current:
+            if current.next == None:
+                current.next = Node(new_node_value)
+                break
+            current = current.next
+
+    def insert_before(self, before, new_value):
+        '''
+        - traverse through the list until current.next == before
+        - if conidtion is met :
+        set current.next == Node(new_value, current.next)
+        - outside if current = current.next
+        '''
+        if self.head == None:
+            raise TargetError
+        inserted = False
+        current = self.head
+        if current.next == None and current.value == before:
+            self.insert(new_value)
+            inserted = True
+        # if current.next != None:
+        else:
+            while current:
+                try:
+                    if current.next.value == before:
+                        current.next = Node(new_value, current.next)
+                        inserted = True
+                        break
+                    current = current.next
+                except:
+                    raise TargetError
+        if inserted == False:
+            raise TargetError
+        # else:
+        #     self.insert(new_value)
+
+
+
+
+
+    def insert_after(self, after, new_value):
+        '''
+        inserts new Node with "new_value" after Node with paramater "after" as a value
+        '''
+        current = self.head
+        if current == None:
+            raise TargetError
+        inserted = False
+        while current:
+            if current.value == after:
+                current.next = Node(new_value, current.next)
+                inserted = True
+                break
+            current = current.next
+        if inserted == False:
+            raise TargetError
+
+
+
 class Node:
     def __init__(self, value, next_ = None):
         self.value = value
         self.next = next_
 
-class TargetError:
+class TargetError(Exception):
     pass
