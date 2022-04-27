@@ -24,3 +24,7 @@ There aren't new memory allocations based on input. No matter the inputs the num
 ## Solution
 
 To use this method call it on an instance of the LinkedList() class. This method will behave as described in challenge summary. If a negative or invalid number is entered (a number longer than or equal to the linked list length) then a TargetError is raised.
+
+## Link To Code
+
+[Git Hub Link](https://github.com/colegibbs/data-structures-and-algorithms/blob/main/python/data_structures/linked_list.py)
