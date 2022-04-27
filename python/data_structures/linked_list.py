@@ -6,7 +6,6 @@ class LinkedList:
     """
     Put docstring here
     """
-
     def __init__(self):
        self.head = None
 
@@ -23,18 +22,6 @@ class LinkedList:
         str += "NULL"
         return str
 
-
-
-        # str = "NULL"
-        # current = self.head
-        # while current:
-        #     if current.next:
-        #         str = f"{{ {current.value} }} -> {{ {current.next.value} }} -> " + str
-        #     else:
-        #         if str == "NULL":
-        #             str = f"{{ {current.value} }} -> " + str
-        #     current = current.next
-        # return str
 
     def includes(self, search_value):
         current = self.head
@@ -84,12 +71,6 @@ class LinkedList:
                     raise TargetError
         if inserted == False:
             raise TargetError
-        # else:
-        #     self.insert(new_value)
-
-
-
-
 
     def insert_after(self, after, new_value):
         '''
@@ -107,6 +88,26 @@ class LinkedList:
             current = current.next
         if inserted == False:
             raise TargetError
+
+    def kth_from_end(self, back_index):
+        length = 0
+        current = self.head
+        while current:
+            length += 1
+            current = current.next
+        loop_count = length - back_index
+
+        if back_index >= length:
+            raise TargetError
+        elif back_index < 0:
+            raise TargetError
+
+        current = self.head
+        for i in range(loop_count):
+            if i == loop_count - 1:
+                return current.value
+            current = current.next
+
 
 
 
