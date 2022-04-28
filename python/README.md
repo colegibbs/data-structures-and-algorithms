@@ -97,4 +97,6 @@ I used TDD to create my linked list. This was best for me because I had never cr
 
 ## Table of Contents
 
+[Linked List Inserts](./docs/linked_list_insertions/README.md)
+
 [kth From End](./docs/linked_list_kth/README.md)
