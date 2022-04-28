@@ -33,9 +33,7 @@ class LinkedList:
 
     def append(self, new_node_value):
         '''
-        traverse through the list until the current.next === None.
-        set current.next to the new node.
-        ser the next of the new node to None.
+        Inserts a new Node at the end of the linked list.
         '''
         current = self.head
         while current:
@@ -46,10 +44,7 @@ class LinkedList:
 
     def insert_before(self, before, new_value):
         '''
-        - traverse through the list until current.next == before
-        - if conidtion is met :
-        set current.next == Node(new_value, current.next)
-        - outside if current = current.next
+        Inserts a new Node with the value of the second arg, before an existing Node with the value of the first arg.
         '''
         if self.head == None:
             raise TargetError
@@ -74,7 +69,7 @@ class LinkedList:
 
     def insert_after(self, after, new_value):
         '''
-        inserts new Node with "new_value" after Node with paramater "after" as a value
+        Inserts a new Node with the value of the second parameter after the existing Node with the value of the first parameter.
         '''
         current = self.head
         if current == None:
