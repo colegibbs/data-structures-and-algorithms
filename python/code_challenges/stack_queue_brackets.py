@@ -1,4 +1,3 @@
-from tabnanny import check
 from data_structures.queue import Queue
 
 
@@ -24,7 +23,3 @@ def multi_bracket_validation(string):
                 continue
 
     return True if check_open == [] else False
-
-
-
-
