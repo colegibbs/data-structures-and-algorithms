@@ -1,3 +1,4 @@
+
 class BinaryTree:
     """
     Put docstring here
@@ -48,6 +49,19 @@ class BinaryTree:
         traverse(self.root, all_values)
 
         return all_values
+
+    def find_maximum_value(self):
+        def traverse(root, maximum):
+            if root == None:
+                return maximum
+            if root.value > maximum:
+                maximum = root.value
+            maximum = traverse(root.left, maximum)
+            maximum = traverse(root.right, maximum)
+            return maximum
+        if self.root == None:
+            raise ValueError("This tree is empty.")
+        return traverse(self.root, 0)
 
 
 class Node:
