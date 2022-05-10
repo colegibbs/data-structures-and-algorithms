@@ -22,7 +22,6 @@ def test_rootless_tree():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
 def test_single_node():
     tree = BinaryTree()
     tree.add("apples")
@@ -31,26 +30,23 @@ def test_single_node():
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
 def test_add_two_nodes():
     tree = BinaryTree()
     tree.add("apples")
     tree.add("bananas")
-    assert tree._root.value == "apples"
-    assert tree._root.left.value == "bananas"
+    assert tree.root.value == "apples"
+    assert tree.root.left.value == "bananas"
 
 
-@pytest.mark.skip("TODO")
 def test_two_nodes():
     tree = BinaryTree()
     tree.add("apples")
     tree.add("bananas")
     expected = ["apples", "bananas"]
-    actual = BinaryTree.breadth_first(tree)
+    actual = breadth_first(tree)
     assert actual == expected
 
 
-@pytest.mark.skip("TODO")
 def test_four_nodes():
     tree = BinaryTree()
     tree.add("apples")
@@ -58,7 +54,7 @@ def test_four_nodes():
     tree.add("cucumbers")
     tree.add("dates")
     expected = ["apples", "bananas", "cucumbers", "dates"]
-    actual = BinaryTree.breadth_first(tree)
+    actual = breadth_first(tree)
     assert actual == expected
 
 
