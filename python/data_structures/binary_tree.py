@@ -1,3 +1,4 @@
+from data_structures.queue import Queue
 
 class BinaryTree:
     """
@@ -6,6 +7,32 @@ class BinaryTree:
 
     def __init__(self):
         self.root = None
+
+    def add(self, value):
+
+        node = Node(value)
+
+        if not self.root:
+            self.root = node
+            return
+
+        breadth = Queue()
+
+        breadth.enqueue(self.root)
+
+        while not breadth.is_empty():
+            front = breadth.dequeue()
+            if not front.left:
+                front.left = node
+                return
+            else:
+                breadth.enqueue(front.left)
+
+            if not front.right:
+                front.right = node
+                return
+            else:
+                breadth.enqueue(front.right)
 
     def pre_order(self):
 
