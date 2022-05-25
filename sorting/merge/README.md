@@ -1,5 +1,10 @@
 # Merge Sort Blog
 
+## Resources
+
+- [Geeks for Geeks Merge Sort](https://www.geeksforgeeks.org/python-program-for-merge-sort/)
+I used this a refence to better understand the algorithm. I did my best not to copy the code. I was heavily influenced by this resource on the last two while loops that handle the imbalanced array cases.
+
 ![Step Trough](./step-through.png)
 
 This is a step through of the entire function. It is best for me to show it this way instead of step by stem. The recursion splits the array into sub arrays until it there is one item item in every array. The algorithm then sorts the individual array back up the recursion stack by left and right values. The first value is compared in every sub array to determine which will go first. The algorithm accounts for the sub arrays being lopsided with left and right while loops.
