@@ -6,6 +6,46 @@ def test_exists():
     assert Hashtable
 
 
+def test_hash():
+    hash_table = Hashtable()
+    key = "blue"
+    actual = hash_table.hash(key)
+    expected = 424
+    assert actual == expected
+
+
+def test_set():
+    hash_table = Hashtable()
+    key = "blue"
+    value = "favorite"
+    hash_table.set(key, value)
+    actual = hash_table.buckets[424].head.value[1]
+    expected = value
+    assert actual == expected
+
+
+def test_set_update():
+    hash_table = Hashtable()
+    key = "blue"
+    value = "favorite"
+    hash_table.set(key, value)
+    hash_table.set(key, "not favorite")
+    actual = hash_table.buckets[424].head.value[1]
+    expected = "not favorite"
+    assert actual == expected
+
+def test_set_linked_list():
+    hash_table = Hashtable()
+    key = "blue"
+    value = "favorite"
+    hash_table.set(key, value)
+    hash_table.set( "bule", "not favorite")
+    actual = hash_table.buckets[424].head.value[1]
+    expected = "not favorite"
+    assert actual == expected
+    actual = hash_table.buckets[424].head.next.value[1]
+    expected = "favorite"
+
 @pytest.mark.skip("TODO")
 def test_get_apple():
     hashtable = Hashtable()
