@@ -46,7 +46,46 @@ def test_set_linked_list():
     actual = hash_table.buckets[424].head.next.value[1]
     expected = "favorite"
 
-@pytest.mark.skip("TODO")
+
+def test_get():
+    hash_table= Hashtable()
+    hash_table.set("blue", "favorite")
+    actual = hash_table.get("blue")
+    expected = "favorite"
+    assert actual == expected
+
+
+def test_get_None():
+    hash_table= Hashtable()
+    hash_table.set("blue", "favorite")
+    actual = hash_table.get("red")
+    expected = None
+    assert actual == expected
+
+
+def test_contains():
+    hash_table= Hashtable()
+    hash_table.set("blue", "favorite")
+    actual = hash_table.contains("blue")
+    assert actual
+
+def test_contains_does_not_contain():
+    hash_table= Hashtable()
+    hash_table.set("blue", "favorite")
+    actual = hash_table.contains("red")
+    assert not actual
+
+
+def test_keys():
+    hash_table= Hashtable()
+    hash_table.set("blue", "favorite")
+    hash_table.set("red", "no favorite")
+    actual = hash_table.keys()
+    expected = ["blue", "red"]
+    assert actual == expected
+
+
+
 def test_get_apple():
     hashtable = Hashtable()
     hashtable.set("apple", "Used for apple sauce")
@@ -55,6 +94,7 @@ def test_get_apple():
     assert actual == expected
 
 
+# This test does not match my LinkedList implementation
 @pytest.mark.skip("TODO")
 def test_internals():
     hashtable = Hashtable(1024)
